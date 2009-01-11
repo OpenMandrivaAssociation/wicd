@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/wicd-client
 %attr(755,root,root) %{_sbindir}/wicd
-%{_desktopdir}/wicd.desktop
+%{_datadir}/applications/wicd.desktop
 %{_datadir}/autostart/wicd-tray.desktop
 /var/lib/%{name}
 %attr(754,root,root) /etc/rc.d/init.d/%{name}
