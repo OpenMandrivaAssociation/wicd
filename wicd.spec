@@ -2,13 +2,14 @@ Name:          wicd
 Version:       1.5.8
 Release:       %mkrel 1
 License:       GPLv2
-Group:         Applications
+Group:         System/Configuration/Networking
 Source0:       http://dl.sourceforge.net/wicd/%{name}-%{version}.tar.gz
 Source1:       %{name}.init
 Patch0:        %{name}-fix_build_error.patch
 URL:           http://wicd.net/
 Summary:       wired and wireless network manager
 BuildRequires: python-devel
+Requires:      python
 BuildArch:     noarch
 BuildRoot:     %{tmpdir}/%{name}-%{version}-buildroot
 
