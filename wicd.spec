@@ -1,5 +1,5 @@
 Name:          wicd
-Version:       1.5.8
+Version:       1.5.9
 Release:       %mkrel 1
 License:       GPLv2
 Group:         System/Configuration/Networking
