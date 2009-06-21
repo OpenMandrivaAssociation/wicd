@@ -1,16 +1,16 @@
 Name:          wicd
-Version:       1.5.9
+Version:       1.6.1
 Release:       %mkrel 1
 License:       GPLv2
 Group:         System/Configuration/Networking
 Source0:       http://dl.sourceforge.net/wicd/%{name}-%{version}.tar.gz
 Source1:       %{name}.init
-Patch0:        %{name}-fix_build_error.patch
+# Install pm-utils scripts in %{libdir}/pm-utils, not in /usr/lib/pm-utils
+Patch0:        wicd-libdir.patch
 URL:           http://wicd.net/
 Summary:       wired and wireless network manager
 BuildRequires: python-devel
 Requires:      python
-BuildArch:     noarch
 BuildRoot:     %{tmpdir}/%{name}-%{version}-buildroot
 
 %description
@@ -20,12 +20,11 @@ wide variety of settings.
 
 %prep
 %setup -q
-%patch0 -p0 -b .build
-python setup.py configure
+%patch0 -p1 -b .libdir
+python setup.py configure --no-install-kde
 
 %build
 python setup.py build
-
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -72,8 +71,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/*.py
 
 %attr(755,root,root) %{_bindir}/wicd-client
+%attr(755,root,root) %{_bindir}/wicd-curses
+%{_libdir}/wicd/backends/be-external.py
+%{_libdir}/wicd/backends/be-ioctl.py
 %attr(755,root,root) %{_sbindir}/wicd
 %{_datadir}/applications/wicd.desktop
-%{_datadir}/autostart/wicd-tray.desktop
 /var/lib/%{name}
 %attr(754,root,root) /etc/rc.d/init.d/%{name}
