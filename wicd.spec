@@ -1,6 +1,6 @@
 Name:          wicd
 Version:       1.6.2
-Release:       %mkrel 1
+Release:       %mkrel 2
 License:       GPLv2
 Group:         System/Configuration/Networking
 Source0:       http://dl.sourceforge.net/wicd/%{name}-%{version}.tar.gz
@@ -11,6 +11,7 @@ URL:           http://wicd.net/
 Summary:       wired and wireless network manager
 BuildRequires: python-devel
 Requires:      python
+Requires:      python-urwid
 BuildRoot:     %{tmpdir}/%{name}-%{version}-buildroot
 
 %description
