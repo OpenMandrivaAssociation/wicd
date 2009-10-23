@@ -35,6 +35,8 @@ python setup.py install \
 
 install -D %{SOURCE1} %{buildroot}/%{_initrddir}/%{name}
 
+%find_lang %name
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -52,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 %_post_service network
 %_post_service network-up
 
-%files
+%files -f %name.lang
 %defattr(644,root,root,755)
 %doc AUTHORS README
 %{_sysconfdir}/acpi/resume.d/80-wicd-connect.sh
