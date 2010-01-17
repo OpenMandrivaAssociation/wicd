@@ -57,27 +57,21 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %name.lang
 %defattr(644,root,root,755)
 %doc AUTHORS README
+%{_bindir}/*
 %{_sysconfdir}/acpi/resume.d/80-wicd-connect.sh
 %{_sysconfdir}/acpi/suspend.d/50-wicd-suspend.sh
-%{_libdir}/pm-utils/sleep.d/55wicd
+%{_libdir}/pm-utils/sleep.d/91wicd
 %{py_puresitedir}/%{name}/*
 %{py_puresitedir}/*.egg-info
-%{_datadir}/pixmaps/%{name}
+%{_datadir}/pixmaps/*
 %{_mandir}
-%{_datadir}/locale
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor
 %{_sysconfdir}/dbus-1/system.d/wicd.conf
 %{_sysconfdir}/wicd
 %{_sysconfdir}/xdg/autostart/wicd-tray.desktop
-%dir %{_libdir}/%{name}/
-%attr(755,root,root) %{_libdir}/%{name}/*.py
-
-%attr(755,root,root) %{_bindir}/wicd-client
-%attr(755,root,root) %{_bindir}/wicd-curses
-%{_libdir}/wicd/backends/be-external.py
-%{_libdir}/wicd/backends/be-ioctl.py
 %attr(755,root,root) %{_sbindir}/wicd
 %{_datadir}/applications/wicd.desktop
-/var/lib/%{name}
+%{_var}/lib/%{name}
+%_logdir/%{name}
 %attr(754,root,root) /etc/rc.d/init.d/%{name}
