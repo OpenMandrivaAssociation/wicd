@@ -1,6 +1,6 @@
 Name:          wicd
 Version:       1.7.0
-Release:       %mkrel 1
+Release:       %mkrel 2
 License:       GPLv2
 Group:         System/Configuration/Networking
 Source0:       http://dl.sourceforge.net/wicd/%{name}-%{version}.tar.gz
@@ -57,7 +57,7 @@ rm -rf %{buildroot}
 %files -f %name.lang
 %defattr(644,root,root,755)
 %doc AUTHORS README
-%{_bindir}/*
+%attr(755,-,-) %{_bindir}/*
 %{_sysconfdir}/acpi/resume.d/80-wicd-connect.sh
 %{_sysconfdir}/acpi/suspend.d/50-wicd-suspend.sh
 %{_libdir}/pm-utils/sleep.d/91wicd
