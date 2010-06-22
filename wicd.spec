@@ -12,7 +12,7 @@ Summary:       wired and wireless network manager
 BuildRequires: python-devel
 Requires:      python
 Requires:      python-urwid
-BuildRoot:     %{tmpdir}/%{name}-%{version}-buildroot
+BuildRoot:     %{tmpdir}/%{name}-%{version}
 
 %description
 Wicd is an open source wired and wireless network manager for Linux
@@ -28,17 +28,17 @@ python setup.py configure --no-install-kde
 python setup.py build
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 python setup.py install \
        --optimize=2 \
-       --root=$RPM_BUILD_ROOT
+       --root=%{buildroot}
 
 install -D %{SOURCE1} %{buildroot}/%{_initrddir}/%{name}
 
 %find_lang %name
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %pre
 
