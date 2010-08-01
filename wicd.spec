@@ -40,10 +40,6 @@ install -D %{SOURCE1} %{buildroot}/%{_initrddir}/%{name}
 %clean
 rm -rf %{buildroot}
 
-%pre
-
-%postun
-
 %post
 %_preun_service network
 %_preun_service network-up
@@ -55,9 +51,9 @@ rm -rf %{buildroot}
 %_post_service network-up
 
 %files -f %name.lang
-%defattr(644,root,root,755)
+%defattr(-,root,root)
 %doc AUTHORS README
-%attr(755,-,-) %{_bindir}/*
+%{_bindir}/*
 %{_sysconfdir}/acpi/resume.d/80-wicd-connect.sh
 %{_sysconfdir}/acpi/suspend.d/50-wicd-suspend.sh
 %{_libdir}/pm-utils/sleep.d/91wicd
