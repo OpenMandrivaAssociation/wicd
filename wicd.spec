@@ -1,6 +1,6 @@
 Name:          wicd
 Version:       1.7.0
-Release:       %mkrel 2
+Release:       %mkrel 3
 License:       GPLv2
 Group:         System/Configuration/Networking
 Source0:       http://dl.sourceforge.net/wicd/%{name}-%{version}.tar.gz
