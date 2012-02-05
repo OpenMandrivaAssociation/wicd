@@ -1,6 +1,6 @@
 Name:          wicd
-Version:       1.7.0
-Release:       %mkrel 3
+Version:       1.7.1
+Release:       1
 License:       GPLv2
 Group:         System/Configuration/Networking
 Source0:       http://dl.sourceforge.net/wicd/%{name}-%{version}.tar.gz
@@ -28,7 +28,6 @@ python setup.py configure --no-install-kde
 python setup.py build
 
 %install
-rm -rf %{buildroot}
 python setup.py install \
        --optimize=2 \
        --root=%{buildroot}
@@ -36,9 +35,6 @@ python setup.py install \
 install -D %{SOURCE1} %{buildroot}/%{_initrddir}/%{name}
 
 %find_lang %name
-
-%clean
-rm -rf %{buildroot}
 
 %post
 %_preun_service network
@@ -54,9 +50,12 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc AUTHORS README
 %{_bindir}/*
+%{_sysconfdir}//logrotate.d/wicd.logrotate
+/lib/systemd/system/wicd.service
+%{_datadir}/dbus-1/system-services/org.wicd.daemon.service
 %{_sysconfdir}/acpi/resume.d/80-wicd-connect.sh
 %{_sysconfdir}/acpi/suspend.d/50-wicd-suspend.sh
-%{_libdir}/pm-utils/sleep.d/91wicd
+%{_libdir}/pm-utils/sleep.d/*wicd
 %{py_puresitedir}/%{name}/*
 %{py_puresitedir}/*.egg-info
 %{_datadir}/pixmaps/*
