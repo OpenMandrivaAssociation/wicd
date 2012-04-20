@@ -1,5 +1,3 @@
-%{!?_systemd_unitdir: %global _systemd_unitdir %(pkg-config systemd --variable=systemdsystemunitdir)}
-
 %define debug_package %{nil}
 
 Name:                wicd
@@ -226,7 +224,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %config(noreplace) %{_sysconfdir}/wicd/encryption/templates/wpa-peap
 %config(noreplace) %{_sysconfdir}/wicd/encryption/templates/wpa2-leap
 %config(noreplace) %{_sysconfdir}/wicd/encryption/templates/wpa2-peap
-%{_unitdir}/wicd.service
+/%{_unitdir}/wicd.service
 %{python_sitelib}/wicd/*
 %{python_sitelib}/wicd-%{version}*.egg-info
 %{_bindir}/wicd-cli
