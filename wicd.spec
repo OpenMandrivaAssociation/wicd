@@ -230,7 +230,6 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{python_sitelib}/wicd/*
 %{python_sitelib}/wicd-%{version}*.egg-info
 %{_bindir}/wicd-cli
-%{_datadir}/autostart/%{name}-tray.desktop
 %{_bindir}/wicd-client
 %{_sbindir}/wicd
 %{_datadir}/applications/wicd.desktop
