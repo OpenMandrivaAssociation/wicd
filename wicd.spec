@@ -1,14 +1,14 @@
 %define debug_package %{nil}
 
 Name:                wicd
-Version:             1.7.2.2
+Version:             1.7.2.3
 Release:             1
 Summary:             Wireless and wired network connection manager
 
 Group:               System/Configuration/Networking
 License:             GPLv2+
 URL:                 http://wicd.sourceforge.net/
-Source0:             http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:             https://launchpad.net/wicd/1.7/%{version}/+download/%{name}-%{version}.tar.gz
 Source1:             wicd.logrotate
 Source2:             org.wicd.daemon.service
 
