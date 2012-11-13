@@ -1,0 +1,4 @@
+sources:
+  "org.wicd.daemon.service:"	e01bf1704fbfa2d7cb45f0002b10de4bad189dd6
+  "wicd-1.7.2.3.tar.gz:"	ec5300216dd1bb0aa85cd92b8a25c672a5d5c028
+  "wicd.logrotate:"	7a9d7c4307fb1f3679f9634fee64281ba1b1757e
