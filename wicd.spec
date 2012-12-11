@@ -1,8 +1,8 @@
 %define debug_package %{nil}
 
 Name:                wicd
-Version:             1.7.2.3
-Release:             1
+Version:             1.7.2.4
+Release:             3
 Summary:             Wireless and wired network connection manager
 
 Group:               System/Configuration/Networking
@@ -39,14 +39,14 @@ Group:               System/Base
 BuildArch:           noarch
 Requires:            dbus
 Requires:            dbus-python
-Requires:            dhclient
+Requires:            dhcp-client
 Requires:            ethtool
-Requires:            iproute
+Requires:            iproute2
 Requires:            logrotate
 Requires:            net-tools
 Requires:            wireless-tools
 Requires:            wpa_supplicant
-Requires:            pygobject2
+Requires:            python-gobject
 Requires(post):      systemd-units
 Requires(preun):     systemd-units
 Requires(postun):    systemd-units
@@ -69,8 +69,8 @@ Summary:             GTK+ client for wicd
 Group:               System/Configuration/Networking
 BuildArch:           noarch
 Requires:            %{name}-common = %{version}-%{release}
-Requires:            notify-python
-Requires:            pygtk2-libglade >= 2.10
+Requires:            python-notify
+Requires:            pygtk2.0-libglade >= 2.10
 
 %description gtk
 Client program for wicd that uses a GTK+ interface.
@@ -270,3 +270,67 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_bindir}/wicd-gtk
 %{_datadir}/icons/hicolor/*/apps/wicd-gtk.png
 %{_datadir}/icons/hicolor/scalable/apps/wicd-gtk.svg
+
+
+%changelog
+* Thu Apr 26 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.7.2.3-1
++ Revision: 793592
+- version update 1.7.2.3
+- / with unitdir
+
+* Fri Apr 20 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.7.2.2-1
++ Revision: 792525
+- tray.desktop removed
+- version update 1.7.2.2
+- version update 1.7.1
+
+* Sat Oct 30 2010 Michael Scherer <misc@mandriva.org> 1.7.0-3mdv2011.0
++ Revision: 590584
+- rebuild for python 2.7
+
+* Sun Aug 01 2010 Funda Wang <fwang@mandriva.org> 1.7.0-2mdv2011.0
++ Revision: 564182
+- fix perms
+
+  + Joao Victor Martins <jvictor@mandriva.com>
+    - Fixing permission of wicd-client binaries.
+
+* Sun Jan 17 2010 Funda Wang <fwang@mandriva.org> 1.7.0-1mdv2010.1
++ Revision: 492552
+- update file list
+- new version 1.7.0
+
+  + Andrey Borzenkov <arvidjaar@mandriva.org>
+    - properly package translation files
+
+* Wed Sep 09 2009 Frederik Himpe <fhimpe@mandriva.org> 1.6.2.2-1mdv2010.0
++ Revision: 435904
+- update to new version 1.6.2.2
+
+* Wed Jul 08 2009 Andrey Borzenkov <arvidjaar@mandriva.org> 1.6.2-2mdv2010.0
++ Revision: 393634
+- requires python-urwid for wicd-curses
+
+* Tue Jul 07 2009 Funda Wang <fwang@mandriva.org> 1.6.2-1mdv2010.0
++ Revision: 393236
+- new version 1.6.2
+
+* Sun Jun 21 2009 Frederik Himpe <fhimpe@mandriva.org> 1.6.1-1mdv2010.0
++ Revision: 387600
+- Update to new version 1.6.1
+- Rediff and rename libdir patch
+- Package cannot be noarch because it installs files in
+  %%{_libdir}/pm-utils/sleep.d
+- Don't install KDE 3 autostart file
+
+* Fri Mar 06 2009 Jérôme Soyer <saispo@mandriva.org> 1.5.9-1mdv2009.1
++ Revision: 349726
+- New upstream release
+
+* Sun Jan 11 2009 Jérôme Soyer <saispo@mandriva.org> 1.5.8-1mdv2009.1
++ Revision: 328366
+- Change desktopdir macros
+- Fix RPM Groups
+  Add python to Requires
+- import wicd
+
