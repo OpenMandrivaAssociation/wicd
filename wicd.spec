@@ -2,7 +2,7 @@
 
 Name:                wicd
 Version:             1.7.2.4
-Release:             3
+Release:             4
 Summary:             Wireless and wired network connection manager
 
 Group:               System/Configuration/Networking
