@@ -1,8 +1,8 @@
 %define debug_package %{nil}
 
 Name:                wicd
-Version:             1.7.2.4
-Release:             4
+Version:             1.7.4
+Release:             1
 Summary:             Wireless and wired network connection manager
 
 Group:               System/Configuration/Networking
