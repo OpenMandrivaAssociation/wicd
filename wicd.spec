@@ -7,7 +7,7 @@ Summary:             Wireless and wired network connection manager
 
 Group:               System/Configuration/Networking
 License:             GPLv2+
-URL:                 http://wicd.sourceforge.net/
+URL:                 https://wicd.sourceforge.net/
 Source0:             https://launchpad.net/wicd/1.7/%{version}/+download/%{name}-%{version}.tar.gz
 Source1:             wicd.logrotate
 Source2:             org.wicd.daemon.service
